@@ -14,21 +14,18 @@ export function App() {
           richColors
           toastOptions={{
             style: {
-              background: "#16a34a", 
-              color: "#ffffff",      
+              background: "var(--secondary)",
+              color: "var(--text-light)",
               fontWeight: "600",
-              borderRadius: "8px",
+              borderRadius: "var(--radius)",
               padding: "14px 18px",
-              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
+              boxShadow: "var(--shadow-soft)",
             },
           }}
         />
-        
       </>
     </SessionContextProvider>
   );
 }
 
 export default App;
-
-

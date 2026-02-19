@@ -98,7 +98,7 @@ export default function Account() {
 
         <div className={styles.header}>
           <FaUserCircle className={styles.avatar} />
-          <h2>{user.user_metadata?.username || "User"}</h2>
+          <h1>{user.user_metadata?.username || "User"}</h1>
           <p className={styles.email}>{user.email}</p>
           <span className={styles.badge}>
             Member since{" "}
@@ -197,3 +197,4 @@ export default function Account() {
     </div>
   );
 }
+

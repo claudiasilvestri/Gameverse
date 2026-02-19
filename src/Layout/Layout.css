@@ -10,12 +10,8 @@
 
 .games {
   flex: 1;
-  min-width: 0; 
+  min-width: 0;
   padding: 20px;
-}
-
-body {
-  overflow-x: hidden;
 }
 
 @media (max-width: 768px) {

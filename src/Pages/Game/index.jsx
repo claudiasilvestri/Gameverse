@@ -126,7 +126,7 @@ export default function Game() {
         <div className={styles.gameCard}>
           <BackButton />
 
-          <h2 className={styles.gameTitle}>{game.name}</h2>
+          <h1 className={styles.gameTitle}>{game.name}</h1>
 
           <GameImage
             image={game.background_image}

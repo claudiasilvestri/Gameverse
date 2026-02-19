@@ -79,7 +79,7 @@ const SignIn = () => {
         </div>
       )}
 
-      <h2>Login</h2>
+      <h1>Login</h1>
 
       <form onSubmit={handleSubmit} className="signin-form">
         <div className="form-group">

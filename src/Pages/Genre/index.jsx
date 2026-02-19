@@ -85,19 +85,21 @@ export default function Genre() {
 
   return (
     <div className={`${styles.main} ${styles.container}`}>
-      
       <BackButton />
 
-      {loading && page === 1 && <Spinner />}
-      <div className="games-grid">
+      <h1 className={styles.title}>
+        {id.charAt(0).toUpperCase() + id.slice(1)}
+      </h1>
 
+      {loading && page === 1 && <Spinner />}
+
+      <div className="games-grid">
         {games.map((game) => (
           <GameCard key={game.id} game={game} />
         ))}
       </div>
 
       <div ref={loadMoreRef} style={{ height: "20px" }} />
-
     </div>
   );
-}   
+}

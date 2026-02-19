@@ -40,8 +40,12 @@ export default function SearchResults() {
     <div className="container">
       <BackButton />
 
+      <h1 className="title">
+        Results for "{query}"
+      </h1>
+
       {results.length === 0 ? (
-        <p style={{ textAlign: "center", marginTop: "40px" }}>
+        <p className="empty">
           Nessun risultato trovato.
         </p>
       ) : (

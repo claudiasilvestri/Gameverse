@@ -1,38 +1,36 @@
 .game_card {
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border: none;
+  border-radius: var(--radius);
   padding: 20px;
-  background-color: #222;
-  color: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: var(--surface-dark);
+  color: var(--text-light);
+  box-shadow: var(--shadow-soft);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.3s ease;
   position: relative;
 }
 
 .game_card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.3);
-  background-color: #333;
 }
 
 .game-image {
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: var(--radius);
   display: block;
 }
 
 .game_title {
   font-size: 18px;
   font-weight: bold;
-  color: #f20065;
+  color: var(--primary);
   font-style: italic;
   margin-top: 12px;
 }
@@ -55,12 +53,12 @@
 }
 
 .read_more:hover {
-  color: #f20065;
+  color: var(--primary);
 }
 
 .game_info {
   font-size: 14px;
-  color: #fff;
+  color: var(--text-light);
   margin-top: 10px;
   text-align: left;
   width: 100%;
@@ -109,11 +107,11 @@
   border: none;
   font-size: 22px;
   cursor: pointer;
-  color: crimson;
+  color: var(--favorite);
 }
 
 .favorite_btn svg {
   width: 22px;
   height: 22px;
-  fill: crimson;
+  fill: var(--favorite);
 }

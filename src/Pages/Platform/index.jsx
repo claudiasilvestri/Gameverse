@@ -86,6 +86,10 @@ export default function Platform() {
       <div className={styles.content}>
         <BackButton />
 
+        <h1 className={styles.title}>
+          Platform {platformID}
+        </h1>
+
         {loading && page === 1 && <Spinner />}
 
         <div className="games-grid">
@@ -99,3 +103,4 @@ export default function Platform() {
     </div>
   );
 }
+

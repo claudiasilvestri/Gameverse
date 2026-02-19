@@ -73,7 +73,7 @@ const SignUp = () => {
         </div>
       )}
 
-      <h2>Sign Up</h2>
+      <h1>Sign Up</h1>
 
       <form onSubmit={handleSubmit} className="signup-form">
         <div className="form-group">
