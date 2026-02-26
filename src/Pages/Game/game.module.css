@@ -250,22 +250,22 @@
 }
 
 .closeButton {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 42px;
-  height: 42px;
+  position: fixed;
+  top: 30px;
+  right: 40px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   border: none;
   background: var(--secondary);
   color: #ffffff;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 800;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
+  z-index: 1000;
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
@@ -312,12 +312,13 @@
   }
 
   .gameCover {
-    height: 260px;
+    height: auto;
+    aspect-ratio: 16 / 9;
   }
 
   .carousel,
   .noTrailerBox {
-    height: 240px;
+    height: auto;
   }
 
   .scrollButton {
@@ -327,7 +328,7 @@
   }
 
   .closeButton {
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
   }
 }

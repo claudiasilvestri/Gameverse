@@ -204,7 +204,6 @@ export default function Game() {
 
           <div className={styles.contentBlock}>
             <h2 className={styles.sectionTitle}>Overview</h2>
-
             <div
               className={styles.description}
               dangerouslySetInnerHTML={{ __html: formattedDescription }}
@@ -223,27 +222,25 @@ export default function Game() {
             </div>
           </div>
 
-          {showTrailer && (
-            <div
-              className={styles.modalOverlay}
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby="trailer-title"
-              onClick={() => setShowTrailer(false)}
-            >
-              <div
-                className={styles.modalContent}
-                onClick={(e) => e.stopPropagation()}
+          {showTrailer && (trailerUrl || youtubeId) && (
+            <div className={styles.modalOverlay}>
+              <button
+                className={styles.closeButton}
+                onClick={() => setShowTrailer(false)}
+                aria-label="Close trailer"
               >
-                <h2 id="trailer-title" className="sr-only">
-                  {game.name} Trailer
-                </h2>
+                ×
+              </button>
 
+              <div className={styles.modalContent}>
                 <div className={styles.videoWrapper}>
                   {trailerUrl ? (
-                    <video controls autoPlay className={styles.trailerVideo}>
-                      <source src={trailerUrl} type="video/mp4" />
-                    </video>
+                    <video
+                      className={styles.trailerVideo}
+                      src={trailerUrl}
+                      controls
+                      autoPlay
+                    />
                   ) : (
                     <iframe
                       className={styles.trailerVideo}

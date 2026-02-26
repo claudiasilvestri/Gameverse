@@ -14,6 +14,7 @@
   transition: transform 0.3s ease;
   position: relative;
   height: 100%;
+  overflow: hidden;
 }
 
 .game_card:hover {
@@ -72,31 +73,32 @@
 
 .platform-icons {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
   margin-bottom: 14px;
   width: 100%;
-  flex-wrap: nowrap;
+  max-width: 100%;
 }
 
 .platform-icon {
+  flex: 0 0 auto;
   width: 28px;
   height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
 }
 
 .platform-icon svg {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
 }
 
 .platform-icon.nintendo svg {
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
 }
 
 .platform-icon.pc { color: #00aaff; }
