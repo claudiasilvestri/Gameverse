@@ -4,14 +4,14 @@ import { FaUserCircle } from "react-icons/fa";
 import "../layout/Header.css";
 import SearchBar from "./SearchBar";
 import "../layout/signup.css";
-import { supabase } from "../supabase/Client";
+import { supabase } from "../supabase/client";
 
 export default function Navbar() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const getInfo = async () => {
+    const getInfo = async () => {S
       const {
         data: { user },
       } = await supabase.auth.getUser();

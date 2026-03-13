@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./game.module.css";
+<<<<<<< HEAD
 import GameImage from "../../components/GameImage";
 import BackButton from "../../components/BackButton";
 import Spinner from "../../components/Spinner";
@@ -8,6 +9,15 @@ import noTrailer from "../../Assets/No-Trailer.jpg";
 
 const API_KEY = "c6d86a1b0cfc40fa8902c3705680c2ed";
 const YT_KEY = import.meta.env.VITE_YOUTUBE_KEY;
+=======
+import BackButton from "../../components/BackButton";
+import Spinner from "../../components/Spinner";
+import noTrailer from "../../Assets/No-Trailer.jpg";
+import noCover from "../../Assets/No-Cover.jpg";
+
+const API_KEY = import.meta.env.VITE_RAWG_API_KEY;
+const YT_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
+>>>>>>> d414fe389073c808328ed8aec270eb7ff540b2aa
 
 function Carousel({ images, gameName }) {
   const [scrollIndex, setScrollIndex] = useState(0);
@@ -36,8 +46,14 @@ function Carousel({ images, gameName }) {
       >
         {images.map((image, index) => (
           <div key={index} className={styles.carouselImageWrapper}>
+<<<<<<< HEAD
             <GameImage
               image={image}
+=======
+            <img
+              src={image || noCover}
+              onError={(e) => (e.currentTarget.src = noCover)}
+>>>>>>> d414fe389073c808328ed8aec270eb7ff540b2aa
               alt={`${gameName} screenshot ${index + 1}`}
             />
           </div>
@@ -95,7 +111,10 @@ export default function Game() {
           const movie = trailerData.results[0];
           const video =
             movie.data?.max || movie.data?.["480"] || movie.data?.["360"];
+<<<<<<< HEAD
 
+=======
+>>>>>>> d414fe389073c808328ed8aec270eb7ff540b2aa
           if (video) {
             setTrailerUrl(video);
             setLoading(false);
@@ -105,17 +124,100 @@ export default function Game() {
 
         const ytRes = await fetch(
           `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(
+<<<<<<< HEAD
             gameData.name + " videogame official trailer"
           )}&key=${YT_KEY}&maxResults=5&type=video`
+=======
+            gameData.name + " trailer"
+          )}&key=${YT_KEY}&maxResults=8&type=video&videoEmbeddable=true&order=relevance`
+>>>>>>> d414fe389073c808328ed8aec270eb7ff540b2aa
         );
 
         const ytData = await ytRes.json();
 
         if (ytData.items?.length > 0) {
+<<<<<<< HEAD
           setYoutubeId(ytData.items[0].id.videoId);
         }
       } catch (error) {
         console.error("Errore nel fetch:", error);
+=======
+          const excludedWords = [
+            "walkthrough",
+            "gameplay",
+            "reaction",
+            "review",
+            "cutscene",
+            "fan made",
+            "full game",
+            "part 1",
+            "analysis",
+            "preview",
+            "playthrough",
+          ];
+
+          const trustedChannels = [
+            "nintendo",
+            "playstation",
+            "xbox",
+            "bandai namco",
+            "capcom",
+            "ubisoft",
+            "electronic arts",
+            "square enix",
+            "sega",
+            "bethesda",
+            "activision",
+            "warner bros",
+            "rockstar games",
+          ];
+
+          const normalizedGameName = gameData.name
+            .toLowerCase()
+            .replace(/[^\w\s]/gi, "")
+            .trim();
+
+          const scored = ytData.items
+            .map((item) => {
+              const title = item.snippet.title.toLowerCase();
+              const channel = item.snippet.channelTitle.toLowerCase();
+              const normalizedTitle = title.replace(/[^\w\s]/gi, "");
+
+              const containsExcluded = excludedWords.some((word) =>
+                normalizedTitle.includes(word)
+              );
+
+              if (containsExcluded) return null;
+
+              let score = 0;
+
+              if (normalizedTitle.includes(normalizedGameName)) score += 3;
+              if (normalizedTitle.includes("official trailer")) score += 5;
+              if (normalizedTitle.includes("launch trailer")) score += 4;
+              if (normalizedTitle.includes("announcement trailer")) score += 4;
+              if (normalizedTitle.includes("reveal trailer")) score += 4;
+              if (channel.includes("official")) score += 3;
+
+              if (
+                trustedChannels.some((brand) => channel.includes(brand))
+              ) {
+                score += 5;
+              }
+
+              return { item, score };
+            })
+            .filter(Boolean)
+            .sort((a, b) => b.score - a.score);
+
+          if (scored.length > 0 && scored[0].score >= 6) {
+            setYoutubeId(scored[0].item.id.videoId);
+          } else {
+            setYoutubeId(null);
+          }
+        }
+      } catch (error) {
+        console.error(error);
+>>>>>>> d414fe389073c808328ed8aec270eb7ff540b2aa
       } finally {
         setLoading(false);
       }
@@ -168,15 +270,25 @@ export default function Game() {
 
           <h1 className={styles.gameTitle}>{game.name}</h1>
 
+<<<<<<< HEAD
           <GameImage
             image={game.background_image}
+=======
+          <img
+            src={game.background_image || noCover}
+            onError={(e) => (e.currentTarget.src = noCover)}
+>>>>>>> d414fe389073c808328ed8aec270eb7ff540b2aa
             className={styles.gameCover}
             alt={`${game.name} cover image`}
           />
 
           {screenshots.length > 0 && (
             <Carousel
+<<<<<<< HEAD
               images={screenshots.map((s) => s.image).filter(Boolean)}
+=======
+              images={screenshots.map((s) => s.image)}
+>>>>>>> d414fe389073c808328ed8aec270eb7ff540b2aa
               gameName={game.name}
             />
           )}
@@ -185,9 +297,12 @@ export default function Game() {
             <button
               ref={trailerButtonRef}
               className={styles.trailerButton}
+<<<<<<< HEAD
               aria-label={`Watch trailer for ${game.name}`}
               aria-haspopup="dialog"
               aria-expanded={showTrailer}
+=======
+>>>>>>> d414fe389073c808328ed8aec270eb7ff540b2aa
               onClick={() => setShowTrailer(true)}
             >
               Watch Trailer
@@ -196,6 +311,10 @@ export default function Game() {
             <div className={styles.noTrailerBox}>
               <img
                 src={noTrailer}
+<<<<<<< HEAD
+=======
+                onError={(e) => (e.currentTarget.src = noTrailer)}
+>>>>>>> d414fe389073c808328ed8aec270eb7ff540b2aa
                 alt={`No trailer available for ${game.name}`}
                 className={styles.noTrailerImage}
               />
@@ -227,7 +346,10 @@ export default function Game() {
               <button
                 className={styles.closeButton}
                 onClick={() => setShowTrailer(false)}
+<<<<<<< HEAD
                 aria-label="Close trailer"
+=======
+>>>>>>> d414fe389073c808328ed8aec270eb7ff540b2aa
               >
                 ×
               </button>
