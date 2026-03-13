@@ -1,19 +1,20 @@
 ## 📸 Screenshots
 
 ### Homepage
-![Homepage](./screenshots/homepage.png)
+![Homepage](./screenshots/Homepage.png)
 
 ### Search Games
-![Search](./screenshots/search.png)
+![Search](./screenshots/Search.png)
 
 ### Game Details
-![Game Details](./screenshots/game-details.png)
+![Game Details](./screenshots/Game-Details.png)
 
 ### Favorites
-![Favorites](./screenshots/favorites.png)
+![Favorites](./screenshots/Favorites.png)
 
 ### User Account
-![Account](./screenshots/account.png)
+![Account](./screenshots/Account.png)
 
 ### Login
-![Login](./screenshots/login.png)
+![Login](./screenshots/Login.png)
+
