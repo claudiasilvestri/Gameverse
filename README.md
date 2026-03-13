@@ -4,7 +4,7 @@ GameVerse is a web application for discovering video games, exploring detailed i
 
 Users can search for games, view detailed pages with trailers and descriptions, and manage their favorite games through a personal account.
 
-🔗 Live Demo: https://gameverse-live.vercel.app/
+🌐 **Live Demo:** https://gameverse-live.vercel.app/
 
 ## ✨ Features
 
@@ -13,7 +13,22 @@ Users can search for games, view detailed pages with trailers and descriptions, 
 - ❤️ Save games to favorites
 - 👤 User authentication (login / signup)
 - 🎮 Browse trending games
-- 
+
+## 🛠 Tech Stack
+
+Frontend
+- React
+- Vite
+- JavaScript
+- HTML
+- CSS
+
+API
+- RAWG Video Games Database API
+
+Deployment
+- Vercel
+
 ## 📸 Screenshots
 
 ### Homepage
