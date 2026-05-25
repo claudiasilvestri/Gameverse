@@ -49,4 +49,7 @@ Deployment
 ### Login
 ![Login](./screenshots/Login.png)
 
-Last updated: May 2026
+🚀 Installation
+
+npm install
+npm run dev
